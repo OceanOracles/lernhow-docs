@@ -41,7 +41,7 @@ under the License.
 
     languages = l;
 
-    if ((location.search.substr(1) != "") && (jQuery.inArray(location.search.substr(1), languages)) != -1) {
+    if ((location.search.substr(1) !== "") && (jQuery.inArray(location.search.substr(1), languages)) != -1) {
       // the language is in the URL, so use that language!
       activateLanguage(location.search.substr(1));
 
