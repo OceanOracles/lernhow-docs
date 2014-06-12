@@ -722,7 +722,9 @@
 
                         if(self.options.scrollHistory) {
 
-                            if(window.location.hash !== "#" + anchorText) {
+                            // IF STATEMENT ADDED BY ROBERT
+
+                            if(window.location.hash !== "#" + anchorText && anchorText !== undefined) {
 
                                 if(history.replaceState) {
                                     history.replaceState({}, "", "#" + anchorText);
