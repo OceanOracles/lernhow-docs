@@ -2,111 +2,96 @@
 title: API Reference
 
 language_tabs:
-  - shell
-  - ruby
-  - python
+- instructions
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='http://github.com/tripit/slate'>Documentation Powered by Slate</a>
+- <a href='#'>Some Link</a>
 
 includes:
-  - errors
+- errors
 
 search: true
 ---
 
-# Introduction
+# Lernhow Documentation
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+> Install dev shit
 
-We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+> Install dev shit
 
-This example API documentation page was created with [Slate](http://github.com/tripit/slate). Feel free to edit it and use it as a base for your own API's documentation.
+> Install dev shit
 
-# Authentication
+> Install dev shit
 
-> To authorize, use this code:
+Intro text blah and install instructions
 
-```ruby
-require 'kittn'
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat.
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
+Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+
+# Protected Endpoints
+
+> To access a protected endpoint, use this code:
+
+```shell
+# you must pass the correct header with each request
+curl "api_endpoint_goes_here"
+  -H "x-access-token: thetokenthatyoucopiedearlierfromlocalstorage"
 ```
 
-```python
-import kittn
+**Lernhow** protects all endpoints that perform *write* operations to **Guide** or **Step** records. All protected endpoints will be marked with a '`*`'.
 
-api = kittn.authorize('meowmeowmeow')
+1. You must navigate to <a href="https://lernhow.herokuapp.com/#signup" target="_blank">lernhow/#signup</a>, and sign up for a standard user account before you can access the **Lernhow** API.
+
+2. Open the developer console, and navigate to the **Resources** tab.
+
+3. Copy the **token** value in **Local Storage** stored in the https://lernhow.herokuapp.com/ section.
+
+# Users
+
+## Create a User (**signup**) *
+
+```javascript
 ```
 
 ```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
-```
-
-> Make sure to replace `meowmeowmeow` with your API key.
-
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
-
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
-
-<aside class="notice">
-You must replace `meowmeowmeow` with your personal API key.
-</aside>
-
-# Kittens
-
-## Get All Kittens
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
-
-```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
+curl "https://lernhow.herokuapp.com/api/endpoint"
+  -H "x-access-token: someridiculouslylongstringthatyoushouldputhere"
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 [
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Isis",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
+{
+  "id": 1,
+  "name": "Fluffums",
+  "breed": "calico",
+  "fluffiness": 6,
+  "cuteness": 7
+},
+{
+  "id": 2,
+  "name": "Isis",
+  "breed": "unknown",
+  "fluffiness": 5,
+  "cuteness": 10
+}
 ]
 ```
 
-This endpoint retrieves all kittens.
+This endpoint **creates** a new **User** record in the database.
 
 ### HTTP Request
 
-`GET http://example.com/kittens`
+**`POST https://lernhow.herokuapp.com/api/users/signup`**
 
 ### Query Parameters
 
@@ -116,7 +101,7 @@ include_cats | false | If set to true, the result will also include cats.
 available | true | If set to false, the result will include kittens that have already been adopted.
 
 <aside class="success">
-Remember — a happy kitten is an authenticated kitten!
+  Remember — a happy kitten is an authenticated kitten!
 </aside>
 
 ## Get a Specific Kitten
@@ -137,7 +122,7 @@ api.kittens.get(2)
 
 ```shell
 curl "http://example.com/api/kittens/3"
-  -H "Authorization: meowmeowmeow"
+-H "Authorization: meowmeowmeow"
 ```
 
 > The above command returns JSON structured like this:
